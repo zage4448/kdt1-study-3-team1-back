@@ -4,20 +4,15 @@ import com.example.demo.account.entity.RoleType;
 import lombok.Getter;
 import lombok.RequiredArgsConstructor;
 
+import java.util.UUID;
+
 @Getter
 @RequiredArgsConstructor
 public class AccountLoginResponseForm {
 
-    private Long accountId;
-    private RoleType roleType;
+    private UUID userToken;
 
-    public AccountLoginResponseForm(Long accountId, RoleType roleType) {
-        this.accountId = accountId;
-        this.roleType = roleType;
+    public AccountLoginResponseForm(UUID userToken) {
+        this.userToken = userToken;
     }
-
-    public AccountLoginResponseForm toResponseForm(Long accountId, RoleType role){
-        return new AccountLoginResponseForm(accountId, role);
-    }
-
 }

@@ -27,8 +27,6 @@ public class AccountServiceImpl implements AccountService {
     final private AccountRoleRepository accountRoleRepository;
     final private RoleRepository roleRepository;
 
-    final private UserTokenRepository userTokenRepository = UserTokenRepositoryImpl.getInstance();
-
     @Override
     public Boolean register(AccountRegisterRequest request) {
         final Optional<Account> maybeAccount = accountRepository.findByEmail(request.getEmail());
@@ -46,7 +44,7 @@ public class AccountServiceImpl implements AccountService {
         return true;
     }
     @Override
-    public AccountLoginResponseForm login(AccountLoginRequestForm requestForm){
+    public Long login(AccountLoginRequestForm requestForm){
         Optional<Account> maybeAccount = accountRepository.findByEmail(requestForm.getEmail());
 
         if(maybeAccount.isEmpty()){
@@ -57,18 +55,16 @@ public class AccountServiceImpl implements AccountService {
         Account account = maybeAccount.get();
 
         if(account.getPassword().equals(requestForm.getPassword())){
-            Role role = accountRoleRepository.findRoleInfoByAccount(account);
 
-            AccountLoginResponseForm responseForm =
-                    new AccountLoginResponseForm(account.getId(), role.toRole(role));
-
-            return responseForm;
+            return account.getId();
         }
 
         log.info("존재하지 않는 아이디입니다.");
         return null;
     }
 
-
-
+    @Override
+    public Role getRoleById(Long accountId) {
+        return accountRoleRepository.findRoleInfoByAccountId(accountId);
+    }
 }

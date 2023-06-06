@@ -8,7 +8,7 @@ import lombok.RequiredArgsConstructor;
 @RequiredArgsConstructor
 public class ProductRequestForm {
 
-    final private Long accountId;
+//    final private Long accountId;
     final private String productName;
     final private Integer productPrice;
 

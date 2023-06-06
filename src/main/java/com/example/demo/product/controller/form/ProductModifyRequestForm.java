@@ -7,7 +7,7 @@ import lombok.RequiredArgsConstructor;
 @RequiredArgsConstructor
 public class ProductModifyRequestForm {
 
-    final private Long accountId;
+//    final private Long accountId;
     final private Long productId;
     final private String productName;
     final private Integer productPrice;

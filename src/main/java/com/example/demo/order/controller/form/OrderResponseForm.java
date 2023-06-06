@@ -8,9 +8,7 @@ import lombok.RequiredArgsConstructor;
 @RequiredArgsConstructor
 public class OrderResponseForm {
     final private Long productId;
-    final private Long accountId;
+    final private String userToken;
 
-    public OrderRequestForm toOrderRequestForm () {
-        return new OrderRequestForm(productId, accountId);
-    }
+
 }

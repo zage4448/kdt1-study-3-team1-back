@@ -32,24 +32,24 @@ public class ProductServiceImpl implements  ProductService{
 
     @Override
     public Product register(ProductRequestForm requestForm){
-        final RoleType roleType = BUSINESS;
-
-        Optional<Account> maybeAccount =
-                accountRepository.findByAccountId(requestForm.getAccountId());
-        Account account = maybeAccount.get();
-
-        Role role = accountRoleRepository.findRoleInfoByAccount(account);
-
-        if(!roleType.equals(role.getRoleType())) {
-            log.info("사업자가 아닌 사용자는 상품을 등록할 수 없습니다.");
-            return null;
-        }
-        else {
+//        final RoleType roleType = BUSINESS;
+//
+//        Optional<Account> maybeAccount =
+//                accountRepository.findByAccountId(requestForm.getAccountId());
+//        Account account = maybeAccount.get();
+//
+//        Role role = accountRoleRepository.findRoleInfoByAccount(account);
+//
+//        if(!roleType.equals(role.getRoleType())) {
+//            log.info("사업자가 아닌 사용자는 상품을 등록할 수 없습니다.");
+//            return null;
+//        }
+//        else {
             Product product = requestForm.toProduct();
             productRepository.save(product);
             return product;
         }
-    }
+//    }
 
     @Override
     public List<Product> list(){

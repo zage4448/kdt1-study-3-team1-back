@@ -2,6 +2,7 @@ package com.example.demo.account.entity;
 
 import jakarta.persistence.*;
 import lombok.NoArgsConstructor;
+import lombok.ToString;
 
 @Entity
 @Table(name = "roleType")
