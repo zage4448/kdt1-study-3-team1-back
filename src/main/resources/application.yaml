@@ -20,9 +20,7 @@ spring:
     type: redis
 
   redis:
-    host: study-3-redis
-    password: eddi@123
-    port: 6379
+    username: default
 
   jpa:
     properties:

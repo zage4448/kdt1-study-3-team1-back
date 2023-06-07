@@ -40,3 +40,4 @@ out/
 redis.properties
 .env
 docker-compose.yml
+redis.conf
