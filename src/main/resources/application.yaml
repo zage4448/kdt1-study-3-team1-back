@@ -20,7 +20,12 @@ spring:
     type: redis
 
   redis:
+    properties:
+      location: classpath:/redis.properties
     username: default
+    password: ${spring.redis.properties['redis.password']}
+    port: ${spring.redis.properties['redis.port']}
+    host: ${spring.redis.properties['redis.host']}
 
   jpa:
     properties:
