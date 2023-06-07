@@ -21,6 +21,7 @@ spring:
 
   redis:
     host: study-3-redis
+    password: eddi@123
     port: 6379
 
   jpa:

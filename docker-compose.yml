@@ -27,6 +27,8 @@ services:
       - "mode=standalone"
     ports:
       - "6379:6379"
+    environment:
+      REDIS_PASSWORD: ${REDIS_PASSWORD}
     depends_on:
       - db
     networks:
