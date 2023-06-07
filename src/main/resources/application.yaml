@@ -20,7 +20,7 @@ spring:
     type: redis
 
   redis:
-    host: next-page-redis
+    host: redis:7.0.4
     port: 6379
 
   jpa:
