@@ -23,9 +23,9 @@ spring:
     properties:
       location: classpath:/redis.properties
     username: default
-    password: ${spring.redis.properties['redis.password']}
-    port: ${spring.redis.properties['redis.port']}
-    host: ${spring.redis.properties['redis.host']}
+    password: ${spring.redis.properties['spring.redis.password']}
+    port: ${spring.redis.properties['spring.redis.port']}
+    host: ${spring.redis.properties['spring.redis.host']}
 
   jpa:
     properties:
