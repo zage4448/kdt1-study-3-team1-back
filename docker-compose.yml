@@ -17,6 +17,21 @@ services:
     networks:
       - app
 
+  redis:
+    image: redis:7.0.4
+    command: redis-server --port 6379
+    container_name: study-3-redis
+    hostname: redis_standalone
+    labels:
+      - "name=redis"
+      - "mode=standalone"
+    ports:
+      - "6379:6379"
+    depends_on:
+      - db
+    networks:
+      - app
+
   server:
     image: ghcr.io/zage4448/kdt1-study-3-team1-back:latest
     build: .
