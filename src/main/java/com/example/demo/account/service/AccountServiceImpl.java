@@ -67,4 +67,15 @@ public class AccountServiceImpl implements AccountService {
     public Role getRoleById(Long accountId) {
         return accountRoleRepository.findRoleInfoByAccountId(accountId);
     }
+
+    @Override
+    public Boolean checkEmailDuplication(String email) {
+        Optional<Account> maybeAccount = accountRepository.findByEmail(email);
+
+        if (maybeAccount.isPresent()) {
+            return false;
+        } else {
+            return true;
+        }
+    }
 }

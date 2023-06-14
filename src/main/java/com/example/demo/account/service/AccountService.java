@@ -11,4 +11,6 @@ public interface AccountService {
     Long login(AccountLoginRequestForm requestForm);
 
     Role getRoleById(Long accountId);
+
+    Boolean checkEmailDuplication(String email);
 }

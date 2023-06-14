@@ -59,4 +59,11 @@ public class AccountController {
            }
         } return false;
     }
+
+    @GetMapping("/check-email/{email}")
+    public Boolean checkEmail(@PathVariable("email") String email) {
+        log.info("check email duplication: " + email);
+
+        return accountService.checkEmailDuplication(email);
+    }
 }
