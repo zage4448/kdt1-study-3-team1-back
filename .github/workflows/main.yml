@@ -40,6 +40,13 @@ jobs:
           pwd
           echo "${{ secrets.REDIS_PROPERTIES }}" > src/main/resources/application.yaml
           cat src/main/resources/application.yaml
+          
+      - name: Create redis.properties for CD Deploy
+        run: |
+          mkdir src/main/resources
+          pwd
+          echo "${{ secrets.FOR_REDIS }}" > src/main/resources/redis.properties
+          cat src/main/resources/redis.properties
             
       - name: Grant execute permission for gradlew
         run: chmod +x gradlew
